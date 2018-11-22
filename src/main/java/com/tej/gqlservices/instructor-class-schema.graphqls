@@ -1,0 +1,29 @@
+schema {
+    query: Query
+}
+
+type Query {
+    instructors: [Instructor]
+    instructor(id: Int): Instructor
+}
+
+type Instructor {
+    id: Int
+    firstName: String
+    lastName: String
+    dob: String
+    profile: Profile
+    classes: [Class]
+}
+
+type Class {
+    id: Int
+    title: String
+    dateCreated: String
+    classInfo: String
+}
+
+type Profile {
+    bio: String
+    activeSince: String
+}
