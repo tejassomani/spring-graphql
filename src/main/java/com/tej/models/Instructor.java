@@ -1,17 +1,21 @@
 package com.tej.models;
 
+import com.base.annotations.GqlSchemaTypeDef;
+import com.base.annotations.GqlSchemaField;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@GqlSchemaTypeDef
 public class Instructor {
 
-    private int id;
-    private String firstName;
-    private String lastName;
-    private Profile profile;
-    private Date dob;
-    private List<Class> aClasses;
+    @GqlSchemaField private int id;
+    @GqlSchemaField private String firstName;
+    @GqlSchemaField private String lastName;
+    @GqlSchemaField private Profile profile;
+    @GqlSchemaField private Date dob;
+    @GqlSchemaField private List<Class> aClasses;
 
     public Instructor() {
     }

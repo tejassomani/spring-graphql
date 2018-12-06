@@ -1,12 +1,16 @@
 package com.tej.models;
 
+import com.base.annotations.GqlSchemaTypeDef;
+import com.base.annotations.GqlSchemaField;
+
 import java.util.Date;
 import java.util.Objects;
 
+@GqlSchemaTypeDef
 public class Profile {
 
-    private  String bio;
-    private  Date activeSince;
+    @GqlSchemaField private  String bio;
+    @GqlSchemaField private  Date activeSince;
 
     public Profile() {
     }

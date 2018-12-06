@@ -1,14 +1,18 @@
 package com.tej.models;
 
+import com.base.annotations.GqlSchemaTypeDef;
+import com.base.annotations.GqlSchemaField;
+
 import java.util.Date;
 import java.util.Objects;
 
+@GqlSchemaTypeDef
 public class Class {
 
-    private int id;
-    private String title;
-    private Date dateCreated;
-    private String classInfo;
+    @GqlSchemaField private int id;
+    @GqlSchemaField private String title;
+    @GqlSchemaField private Date dateCreated;
+    @GqlSchemaField private String classInfo;
 
     public Class() {
     }
