@@ -13,14 +13,14 @@ type Instructor {
     lastName: String
     dob: String
     profile: Profile
-    classes: [Class]
+    courses: [Course]
 }
 
-type Class {
+type Course {
     id: Int
     title: String
     dateCreated: String
-    classInfo: String
+    courseInfo: String
 }
 
 type Profile {

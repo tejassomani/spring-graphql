@@ -15,19 +15,19 @@ public class Instructor {
     @GqlSchemaField private String lastName;
     @GqlSchemaField private Profile profile;
     @GqlSchemaField private Date dob;
-    @GqlSchemaField private List<Class> aClasses;
+    @GqlSchemaField private List<Course> courses;
 
     public Instructor() {
     }
 
 
-    public Instructor(int id, String firstName, String lastName, Date dob, Profile profile, List<Class> aClasses) {
+    public Instructor(int id, String firstName, String lastName, Date dob, Profile profile, List<Course> courses) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
         this.profile = profile;
-        this.aClasses = aClasses;
+        this.courses = courses;
     }
 
     public int getId() {
@@ -70,12 +70,12 @@ public class Instructor {
         this.profile = profile;
     }
 
-    public List<Class> getaClasses() {
-        return aClasses;
+    public List<Course> getCourses() {
+        return courses;
     }
 
-    public void setaClasses(List<Class> aClasses) {
-        this.aClasses = aClasses;
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 
     @Override
@@ -88,12 +88,12 @@ public class Instructor {
                 Objects.equals(lastName, instructor.lastName) &&
                 Objects.equals(dob, instructor.dob) &&
                 Objects.equals(profile, instructor.profile) &&
-                Objects.equals(aClasses, instructor.aClasses);
+                Objects.equals(courses, instructor.courses);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, dob, profile, aClasses);
+        return Objects.hash(id, firstName, lastName, dob, profile, courses);
     }
 
 }

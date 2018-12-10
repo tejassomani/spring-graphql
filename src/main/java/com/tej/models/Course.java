@@ -7,21 +7,21 @@ import java.util.Date;
 import java.util.Objects;
 
 @GqlSchemaTypeDef
-public class Class {
+public class Course {
 
-    @GqlSchemaField private int id;
+    @GqlSchemaField private Integer id;
     @GqlSchemaField private String title;
     @GqlSchemaField private Date dateCreated;
-    @GqlSchemaField private String classInfo;
+    @GqlSchemaField private String courseInfo;
 
-    public Class() {
+    public Course() {
     }
 
-    public Class(int id, String title, Date dateCreated, String text) {
+    public Course(int id, String title, Date dateCreated, String text) {
         this.id = id;
         this.title = title;
         this.dateCreated = dateCreated;
-        this.classInfo = text;
+        this.courseInfo = text;
     }
 
     public int getId() {
@@ -48,28 +48,28 @@ public class Class {
         this.dateCreated = dateCreated;
     }
 
-    public String getClassInfo() {
-        return classInfo;
+    public String getCourseInfo() {
+        return courseInfo;
     }
 
-    public void setClassInfo(String classInfo) {
-        this.classInfo = classInfo;
+    public void setCourseInfo(String courseInfo) {
+        this.courseInfo = courseInfo;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Class)) return false;
-        Class aClass = (Class) o;
-        return id == aClass.id &&
-                Objects.equals(title, aClass.title) &&
-                Objects.equals(dateCreated, aClass.dateCreated) &&
-                Objects.equals(classInfo, aClass.classInfo);
+        if (!(o instanceof Course)) return false;
+        Course aCourse = (Course) o;
+        return id == aCourse.id &&
+                Objects.equals(title, aCourse.title) &&
+                Objects.equals(dateCreated, aCourse.dateCreated) &&
+                Objects.equals(courseInfo, aCourse.courseInfo);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, title, dateCreated, classInfo);
+        return Objects.hash(id, title, dateCreated, courseInfo);
     }
 }

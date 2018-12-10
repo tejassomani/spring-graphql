@@ -1,6 +1,6 @@
 package com.tej;
 
-import com.tej.models.Class;
+import com.tej.models.Course;
 import com.tej.models.Instructor;
 import com.tej.models.Profile;
 
@@ -11,7 +11,7 @@ import java.util.Map;
 public class DummyDataLoader {
 
     private static Map<Integer, Instructor> instructors = new HashMap<>();
-    private static Map<Integer, Class> classes = new HashMap<>();
+    private static Map<Integer, Course> courses = new HashMap<>();
 
     public static Map<Integer, Instructor> getInstructors() {
         if (instructors.isEmpty()) {
@@ -20,8 +20,8 @@ public class DummyDataLoader {
         return instructors;
     }
 
-    public static Map<Integer, Class> getClasses() {
-        return classes;
+    public static Map<Integer, Course> getCourses() {
+        return courses;
     }
 
     private static void loadData() {
@@ -32,7 +32,7 @@ public class DummyDataLoader {
         instructor1.setFirstName("Matt");
         instructor1.setLastName("Wilpers");
         instructor1.setProfile(profile1);
-        instructor1.setaClasses(new ArrayList<>());
+        instructor1.setCourses(new ArrayList<>());
         instructors.put(1, instructor1);
 
         Profile profile2 = new Profile();
@@ -42,7 +42,7 @@ public class DummyDataLoader {
         instructor2.setFirstName("John");
         instructor2.setLastName("Doe");
         instructor2.setProfile(profile2);
-        instructor2.setaClasses(new ArrayList<>());
+        instructor2.setCourses(new ArrayList<>());
         instructors.put(2, instructor2);
 
         Profile profile3 = new Profile();
@@ -52,7 +52,7 @@ public class DummyDataLoader {
         instructor3.setFirstName("Emma");
         instructor3.setLastName("Lwell");
         instructor3.setProfile(profile3);
-        instructor3.setaClasses(new ArrayList<>());
+        instructor3.setCourses(new ArrayList<>());
         instructors.put(3, instructor3);
 
         Profile profile4 = new Profile();
@@ -62,38 +62,38 @@ public class DummyDataLoader {
         instructor4.setFirstName("Cody");
         instructor4.setLastName("Rigsby");
         instructor4.setProfile(profile4);
-        instructor4.setaClasses(new ArrayList<>());
+        instructor4.setCourses(new ArrayList<>());
         instructors.put(4, instructor4);
 
-        Class class1 = new Class();
-        class1.setId(1);
-        class1.setTitle("Beginner Ride");
-        class1.setClassInfo("Perfect for beginners, slow build up");
-        classes.put(1, class1);
+        Course course1 = new Course();
+        course1.setId(1);
+        course1.setTitle("Beginner Ride");
+        course1.setCourseInfo("Perfect for beginners, slow build up");
+        courses.put(1, course1);
 
-        Class class2 = new Class();
-        class2.setId(2);
-        class2.setTitle("Low Impact");
-        class2.setClassInfo("Suited for someone recovering from injury");
-        classes.put(2, class2);
+        Course course2 = new Course();
+        course2.setId(2);
+        course2.setTitle("Low Impact");
+        course2.setCourseInfo("Suited for someone recovering from injury");
+        courses.put(2, course2);
 
-        Class class3 = new Class();
-        class3.setId(3);
-        class3.setTitle("Ride & Strength");
-        class3.setClassInfo("Ride along with some strength and core training");
-        classes.put(3, class3);
+        Course course3 = new Course();
+        course3.setId(3);
+        course3.setTitle("Ride & Strength");
+        course3.setCourseInfo("Ride along with some strength and core training");
+        courses.put(3, course3);
 
-        Class class4 = new Class();
-        class4.setId(4);
-        class4.setTitle("Advanced Begginer");
-        class4.setClassInfo("Beginners going to the next level. Work more, sweat more");
-        classes.put(4, class4);
+        Course course4 = new Course();
+        course4.setId(4);
+        course4.setTitle("Advanced Begginer");
+        course4.setCourseInfo("Beginners going to the next level. Work more, sweat more");
+        courses.put(4, course4);
 
-        instructor1.getaClasses().add(class1);
-        instructor1.getaClasses().add(class2);
+        instructor1.getCourses().add(course1);
+        instructor1.getCourses().add(course2);
 
-        instructor2.getaClasses().add(class3);
+        instructor2.getCourses().add(course3);
 
-        instructor3.getaClasses().add(class4);
+        instructor3.getCourses().add(course4);
     }
 }

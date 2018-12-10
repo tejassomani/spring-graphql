@@ -1,6 +1,7 @@
 package com.tej.gqlservices;
 
-import com.tej.resolvers_fetchers.ClassDataFetcher;
+import com.base.process.GqlSchemaGeneratorUtils;
+import com.tej.resolvers_fetchers.CourseDataFetcher;
 import com.tej.resolvers_fetchers.InstructorDataFetcher;
 import graphql.ExecutionResult;
 import graphql.GraphQL;
@@ -21,7 +22,7 @@ public class SchemaWiringServiceImpl {
     private InstructorDataFetcher instructorDataFetcher;
 
     @Autowired
-    private ClassDataFetcher classDataFetcher;
+    private CourseDataFetcher courseDataFetcher;
 
     public ExecutionResult executeQuery(final String query) {
         GraphQL gql = buildGraphQL();
@@ -30,11 +31,12 @@ public class SchemaWiringServiceImpl {
 
     private GraphQL buildGraphQL() {
         //todo get from resource folder the fileName
-        final File schemaFile = new File("src/main/java/com/tej/gqlservices/instructor-class-schema.graphqls");
+        //final File schemaFile = new File("src/main/java/com/tej/gqlservices/instructor-class-schema.graphqls");
 
         //parse schema file and get type definition
         final SchemaParser schemaParser = new SchemaParser();
-        final TypeDefinitionRegistry typeDefinitionRegistry = schemaParser.parse(schemaFile);
+        String schema = GqlSchemaGeneratorUtils.getInputSchema();
+        final TypeDefinitionRegistry typeDefinitionRegistry = schemaParser.parse(schema);
 
         final GraphQLSchema graphQLSchema = new SchemaGenerator().
                 makeExecutableSchema(typeDefinitionRegistry, buildWiring());
@@ -47,9 +49,7 @@ public class SchemaWiringServiceImpl {
                         .dataFetcher("instructors", instructorDataFetcher)
                         .dataFetcher("instructor", instructorDataFetcher))
                 .type("Instructor", typeWiring -> typeWiring
-                        .dataFetcher("classes", classDataFetcher))
+                        .dataFetcher("classes", courseDataFetcher))
                 .build();
     }
-
-
 }
